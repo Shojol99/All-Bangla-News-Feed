@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* 
+  BanglaNewsHub Brand Design System
+  Senior UI/UX Designer Specification
+*/
+
+:root {
+  /* --- Light Theme Palette --- */
+  --bg-main: #FFFFFF;
+  --bg-surface: #F8FAFC;
+  --bg-nav: rgba(255, 255, 255, 0.8);
+  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --text-on-brand: #FFFFFF;
+
+  --brand-red: #E53935;
+  --brand-green: #2E7D32;
+  --brand-gold: #C9A227;
+  
+  --border-subtle: #E2E8F0;
+  --border-strong: #CBD5E1;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-premium: 0 20px 25px -5px rgb(201 162 39 / 0.1), 0 8px 10px -6px rgb(201 162 39 / 0.1);
+
+  /* --- Design Tokens --- */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+}
+
+[data-theme="dark"] {
+  /* --- Dark Theme Palette (Premium Mode) --- */
+  --bg-main: #0F172A; /* Dark Navy */
+  --bg-surface: #1E293B;
+  --bg-nav: rgba(15, 23, 42, 0.8);
+  
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-on-brand: #FFFFFF;
+
+  --brand-red: #EF5350;   /* Muted Red */
+  --brand-green: #66BB6A; /* Muted Green */
+  --brand-gold: #D4AF37;  /* Muted Gold */
+  
+  --border-subtle: #334155;
+  --border-strong: #475569;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --shadow-premium: 0 20px 25px -5px rgb(0 0 0 / 0.6);
+}
+
+@theme {
+  --font-sans: "Inter", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-bangla: "Hind Siliguri", sans-serif;
+  
+  /* Brand Colors */
+  --color-brand-red: var(--brand-red);
+  --color-brand-green: var(--brand-green);
+  --color-brand-gold: var(--brand-gold);
+  
+  /* UI Colors */
+  --color-bg-main: var(--bg-main);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-nav: var(--bg-nav);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-on-brand: var(--text-on-brand);
+  
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+
+  /* Radius */
+  --radius-brand-sm: var(--radius-sm);
+  --radius-brand-md: var(--radius-md);
+  --radius-brand-lg: var(--radius-lg);
+  --radius-brand-xl: var(--radius-xl);
+
+  /* Shadows */
+  --shadow-brand-sm: var(--shadow-sm);
+  --shadow-brand-md: var(--shadow-md);
+  --shadow-brand-lg: var(--shadow-lg);
+  --shadow-brand-premium: var(--shadow-premium);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-brand-red text-text-on-brand rounded-brand-md font-bold transition-all hover:opacity-90 active:scale-95 shadow-brand-md;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 bg-bg-surface text-text-primary border border-border-subtle rounded-brand-md font-bold transition-all hover:bg-border-subtle active:scale-95;
+  }
+
+  .card-premium {
+    @apply bg-bg-surface border border-border-subtle rounded-brand-lg p-6 transition-all hover:shadow-brand-lg hover:border-brand-gold/30;
+  }
+
+  .badge-gold {
+    @apply px-3 py-1 bg-brand-gold/10 text-brand-gold text-xs font-bold rounded-full border border-brand-gold/20;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
